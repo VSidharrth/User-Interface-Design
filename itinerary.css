@@ -1,0 +1,168 @@
+.itinerary-planner {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.planner-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.planner-controls input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 150px;
+}
+
+.planner-controls button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#optimize-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#optimize-btn:hover {
+    background-color: #45b7b0;
+}
+
+#save-itinerary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#save-itinerary-btn:hover {
+    background-color: #ff5252;
+}
+
+#export-btn {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+#export-btn:hover {
+    background-color: #ffd83d;
+}
+
+.itinerary-builder {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+#selected-places {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    min-height: 400px;
+}
+
+.selected-place {
+    background-color: var(--card-background);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.selected-place:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.remove-place {
+    color: #ff5252;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+}
+
+.remove-place:hover {
+    background-color: #ffeded;
+}
+
+#daily-plan {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.day-container {
+    margin-bottom: 2rem;
+}
+
+.day-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.day-places {
+    padding: 1rem;
+    background-color: var(--card-background);
+    border-radius: 5px;
+    min-height: 100px;
+}
+
+.place-item {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.place-item:last-child {
+    margin-bottom: 0;
+}
+
+.place-details {
+    flex: 1;
+}
+
+.place-time {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+.place-cost {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .itinerary-builder {
+        grid-template-columns: 1fr;
+    }
+    
+    .planner-controls {
+        flex-direction: column;
+    }
+    
+    .planner-controls input,
+    .planner-controls button {
+        width: 100%;
+    }
+} 

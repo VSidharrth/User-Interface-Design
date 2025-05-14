@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South India Heritage Explorer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/itinerary.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>South India Heritage Explorer</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active" id="home-link">Home</a>
+            <a href="#" id="explore-link">Explore</a>
+            <a href="#" id="itinerary-link">My Itineraries</a>
+            <a href="#" id="favorites-link">Favorites</a>
+            <button id="login-btn" class="auth-btn">Login</button>
+            <button id="signup-btn" class="auth-btn">Sign Up</button>
+            <div id="user-profile" class="hidden">
+                <span id="username"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Sections -->
+    <main>
+        <!-- Home Section -->
+        <section id="home-section" class="active-section">
+            <div class="hero">
+                <h1>Discover the Rich Heritage of South India</h1>
+                <p>Plan your perfect journey through historical landmarks across five beautiful states</p>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for historical places...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="featured-places">
+                <h2>Featured Historical Places</h2>
+                <div class="places-grid" id="featured-places-grid"></div>
+            </div>
+        </section>
+
+        <!-- Explore Section -->
+        <section id="explore-section" class="hidden">
+            <div class="explore-container">
+                <div class="filters">
+                    <select id="state-filter">
+                        <option value="">All States</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Telangana">Telangana</option>
+                    </select>
+                    <select id="category-filter">
+                        <option value="">All Categories</option>
+                        <option value="Temple">Temples</option>
+                        <option value="Fort">Forts</option>
+                        <option value="Palace">Palaces</option>
+                        <option value="Monument">Monuments</option>
+                    </select>
+                </div>
+                <div id="map"></div>
+                <div class="places-list" id="places-list"></div>
+            </div>
+        </section>
+
+        <!-- Itinerary Section -->
+        <section id="itinerary-section" class="hidden">
+            <div class="itinerary-planner">
+                <h2>Create Your Itinerary</h2>
+                <div class="planner-controls">
+                    <input type="number" id="days-input" min="1" placeholder="Number of days">
+                    <button id="optimize-btn">Optimize Route</button>
+                    <button id="save-itinerary-btn">Save Itinerary</button>
+                    <button id="export-btn">Export</button>
+                </div>
+                <div class="itinerary-builder">
+                    <div id="selected-places"></div>
+                    <div id="daily-plan"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites-section" class="hidden">
+            <h2>My Favorite Places</h2>
+            <div class="favorites-grid" id="favorites-grid"></div>
+        </section>
+    </main>
+
+    <!-- Auth Modals -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="signup-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/itinerary.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Discover the rich cultural heritage of South India through our curated collection of historical sites, temples, and monuments.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" id="footer-home">Home</a></li>
+                    <li><a href="#" id="footer-explore">Explore</a></li>
+                    <li><a href="#" id="footer-itinerary">Plan Itinerary</a></li>
+                    <li><a href="#" id="footer-favorites">Favorites</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: dharaneswar339@gmail.com</p>
+                <p>Phone: +91 8247461148</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 South India Heritage Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
